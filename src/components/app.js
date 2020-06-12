@@ -61,8 +61,6 @@ export const App = () => {
         } */
 
     const clickEliminar = (e, i) => {
-        console.log("indice: ", i);
-
         let nuevaData = state.tareas.filter((tarea, tareaIndice) => {
             return tareaIndice !== i;
         })
