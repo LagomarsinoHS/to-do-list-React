@@ -1,0 +1,22 @@
+#input {
+    border: none;
+}
+
+li {
+    border: none !important;
+    cursor: pointer;
+}
+
+li:hover #eliminar {
+    background-color: aliceblue;
+    visibility: visible;
+}
+
+#eliminar {
+    float: right;
+    visibility: hidden;
+}
+
+.fa-check{
+    color: #285943;
+}
