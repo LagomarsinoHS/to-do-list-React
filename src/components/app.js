@@ -64,7 +64,6 @@ export const App = () => {
         let nuevaData = state.tareas.filter((tarea, tareaIndice) => {
             return tareaIndice !== i;
         })
-        console.log(nuevaData)
         setState(prevState => {
             return { ...prevState, tareas: nuevaData }
         })
