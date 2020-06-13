@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 export const App = () => {
 
@@ -14,8 +14,7 @@ export const App = () => {
             let newData = {
                 //propiedad
                 //del Obj       V Lo que quiero insertar EN el obj
-                tareas: state.tareas.concat({ tarea: e.target.value, eliminar: false }),
-                enterApretado: true
+                tareas: state.tareas.concat({ tarea: e.target.value }),
             }
             setState(prevState => {
                 return { ...prevState, ...newData }
@@ -74,7 +73,7 @@ export const App = () => {
 
     }
 
-    const asda = (cantidad) => {
+    const mensajePorTarea = (cantidad) => {
         console.log(cantidad)
         switch (true) {
             case (cantidad > 0 && cantidad <= 2): return <span className="ml-3 text-info font-weight-bold">Queda poco!</span>;
@@ -117,7 +116,7 @@ export const App = () => {
                             {state.tareas.length} item restantes.
 
                             {
-                                asda(state.tareas.length)
+                                mensajePorTarea(state.tareas.length)
                             }
 
 
@@ -128,7 +127,4 @@ export const App = () => {
         </div>
     </>
     )
-
-
-
 }
