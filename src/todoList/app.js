@@ -9,7 +9,7 @@ export const App = () => {
     const getInput = (e) => {
 
 
-        if (e.target.value !== "" && e.key === "Enter") {
+        if (e.key === "Enter" && e.target.value !== "") {
 
             let newData = {
                 //propiedad
@@ -76,9 +76,9 @@ export const App = () => {
     const mensajePorTarea = (cantidad) => {
         console.log(cantidad)
         switch (true) {
-            case (cantidad > 0 && cantidad <= 2): return <span className="ml-3 text-info font-weight-bold">Queda poco!</span>;
-            case (cantidad > 2 && cantidad <= 5): return <span className="ml-3 text-warning font-weight-bold">Trabaje trabaje!</span>;;
-            case cantidad > 5: return <span className="ml-3 text-danger font-weight-bold">pff, flojo</span>;
+            case (cantidad > 0 && cantidad <= 2): return <span className="ms-3 text-info fw-bold">Queda poco!</span>;
+            case (cantidad > 2 && cantidad <= 5): return <span className="ms-3 text-warning fw-bold">Trabaje trabaje!</span>;
+            case cantidad > 5: return <span className="ms-3 text-danger fw-bold">pff, flojo</span>;
         }
 
     }
@@ -95,10 +95,10 @@ export const App = () => {
                 <div className="col-md-6 mx-auto">
                     <div className="card text-center mb-5">
                         <div className="card-header">
-                            <input autoFocus id="input" type="text" className="form-control" placeholder="¿Qué se necesita hacer?" onKeyPress={(e) => getInput(e)} />
+                            <input autoFocus id="input" type="text" className="form-control" placeholder="¿Qué se necesita hacer?" onKeyDown={(e) => getInput(e)} />
                         </div>
                         <div className="card-body">
-                            <ul className="list-group text-left">
+                            <ul className="list-group text-start">
                                 {
                                     state.tareas.length > 0 ? (
 
@@ -107,12 +107,12 @@ export const App = () => {
                                         })
                                     ) :
                                         (
-                                            <li className="list-group-item bg-success"><span className="mr-4">No hay Tareas pendientes.</span><i className="fas fa-check fa-2x"></i><i className="fas fa-check fa-2x"></i><i className="fas fa-check fa-2x"></i></li>
+                                            <li className="list-group-item bg-success"><span className="me-4">No hay Tareas pendientes.</span><i className="fas fa-check fa-2x"></i><i className="fas fa-check fa-2x"></i><i className="fas fa-check fa-2x"></i></li>
                                         )
                                 }
                             </ul>
                         </div>
-                        <div className="card-footer text-muted text-left">
+                        <div className="card-footer text-muted text-start">
                             {state.tareas.length} item restantes.
 
                             {
